@@ -24,7 +24,7 @@ module Rack
 
       if etag_status?(status) && etag_body?(body) && !skip_caching?(headers)
         digest, body = digest_body(body)
-        headers['ETag'] = %("#{digest}") if digest
+        headers['ETag'] = %(W/"#{digest}") if digest
       end
 
       unless headers['Cache-Control']
